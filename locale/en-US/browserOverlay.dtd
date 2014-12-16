@@ -1,0 +1,5 @@
+<!ENTITY linkiepie.bookmark.label            "LinkiePie Bookmark">
+<!ENTITY linkiepie.bookmark.bookmarkthis-label            "Add Current Page">
+<!ENTITY linkiepie.bookmarkMenu.accesskey    "l">
+<!ENTITY linkiepie.bookmarkItem.accesskey    "b">
+<!ENTITY linkiepie.bookmark.preferences-label            "Preferences">

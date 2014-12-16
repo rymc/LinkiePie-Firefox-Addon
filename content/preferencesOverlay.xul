@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+ 
+<prefwindow id="linkiepie-prefs"
+     title="LinkiePie Settings"
+     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+ 
+ <prefpane id="linkiepie-pane" label="LinkiePie Settings"> 
+  <preferences>
+    <preference id="pref_username" name="extensions.linkiepie.username" type="string"/>
+    <preference id="pref_key" name="extensions.linkiepie.api_key" type="string"/>
+  </preferences>
+ 
+  <hbox align="center">
+    <label control="username" value="Username: "/>
+    <textbox preference="pref_username" id="username"/>
+  </hbox>
+  <hbox align="center">
+    <label control="api_key" value="API Key: "/>
+    <textbox preference="pref_key" id="api_key"/>
+  </hbox>
+  </prefpane>
+ 
+</prefwindow>
+

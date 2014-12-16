@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet type="text/css" href="chrome://global/skin/" ?>
+<?xml-stylesheet type="text/css"
+  href="chrome://linkiepie/skin/browserOverlay.css" ?>
+
+<!DOCTYPE overlay SYSTEM
+  "chrome://linkiepie/locale/browserOverlay.dtd">
+
+<overlay id="linkiepie-browser-overlay"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <script type="application/x-javascript"
+    src="chrome://linkiepie/content/browserOverlay.js" />
+
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="linkiepie-string-bundle"
+      src="chrome://linkiepie/locale/browserOverlay.properties" />
+  </stringbundleset>
+
+  <menubar id="main-menubar">
+    <menu id="linkiepie-bookmark-menu" label="&linkiepie.bookmark.label;"
+      accesskey="&linkiepie.bookmarkMenu.accesskey;" insertafter="bookmarksMenu">
+      <menupopup>
+        <menuitem id="linkiepie-bookmark-menu-item"
+          label="&linkiepie.bookmark.bookmarkthis-label;"
+          accesskey="&linkiepie.bookmarkItem.accesskey;"
+          oncommand="LinkiePieChrome.BrowserOverlay.bookmarkCurrent(event);" />
+        <menuitem id="linkiepie-bookmark-menu-item"
+          label="&linkiepie.bookmark.preferences-label;"
+          oncommand="LinkiePieChrome.BrowserOverlay.openPreferences();" />
+      </menupopup>
+    </menu>
+  </menubar>
+
+  <vbox id="appmenuSecondaryPane">
+    <menu id="linkiepie-bookmark-menu-2" label="&linkiepie.bookmark.label;"
+      accesskey="&linkiepie.bookmarkMenu.accesskey;"
+      insertafter="appmenu_addons">
+      <menupopup>
+        <menuitem id="linkiepie-bookmark-menu-item-2"
+          label="&linkiepie.bookmark.bookmarkthis-label;"
+          accesskey="&linkiepie.bookmarkItem.accesskey;"
+          oncommand="LinkiePieChrome.BrowserOverlay.bookmarkCurrent(event);" />
+      </menupopup>
+    </menu>
+  </vbox>
+</overlay>
