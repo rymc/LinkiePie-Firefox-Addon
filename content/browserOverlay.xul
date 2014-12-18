@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <?xml-stylesheet type="text/css" href="chrome://global/skin/" ?>
-<?xml-stylesheet type="text/css"
+<?xml-stylesheet type="text/css" 
   href="chrome://linkiepie/skin/browserOverlay.css" ?>
 
 <!DOCTYPE overlay SYSTEM
@@ -26,9 +26,14 @@
           label="&linkiepie.bookmark.bookmarkthis-label;"
           accesskey="&linkiepie.bookmarkItem.accesskey;"
           oncommand="LinkiePieChrome.BrowserOverlay.bookmarkCurrent(event);" />
-        <menuitem id="linkiepie-bookmark-menu-item"
-          label="&linkiepie.bookmark.preferences-label;"
-          oncommand="LinkiePieChrome.BrowserOverlay.openPreferences();" />
+        <menuitem id="linkiepie-goto-linkiepie-menu-item"
+          label="&linkiepie.open-linkiepie-label;"
+          accesskey="&linkiepie.open-linkiepie.accesskey;"
+          oncommand="LinkiePieChrome.BrowserOverlay.openLinkiePie(event);" />
+        <menuitem id="linkiepie-preferences-menu-item"
+          label="&linkiepie.open-preferences-label;"
+          accesskey="&linkiepie.open-preferences.accesskey;"
+          oncommand="LinkiePieChrome.BrowserOverlay.openPreferences(event);" />
       </menupopup>
     </menu>
   </menubar>
@@ -45,4 +50,10 @@
       </menupopup>
     </menu>
   </vbox>
+  <toolbarpalette id="BrowserToolbarPalette">
+        <toolbarbutton id="linkiepie-button" class="toolbarbutton-1"
+                label="LinkiePie it!" tooltiptext="Bookmark!"
+                    oncommand="LinkiePieChrome.BrowserOverlay.bookmarkCurrent(event);"/>
+            </toolbarpalette>
+
 </overlay>

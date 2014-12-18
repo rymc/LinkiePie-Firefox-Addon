@@ -1,5 +1,5 @@
 content   linkiepie                content/
 skin      linkiepie  classic/1.0   skin/
-locale    linkiepie  en-US         locale/en-US/
+locale    linkiepie  en-GB        locale/en-GB/
 
 overlay chrome://browser/content/browser.xul  chrome://linkiepie/content/browserOverlay.xul

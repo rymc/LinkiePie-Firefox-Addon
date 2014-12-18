@@ -5,13 +5,13 @@
 
   <Description about="urn:mozilla:install-manifest">
     <em:id>linkiepie@ryanmcconville.com</em:id>
-    <em:name>LinkiePie bookmarker</em:name>
+    <em:name>LinkiePie Bookmarker</em:name>
     <em:description>Easily add your current page to your LinkiePie account</em:description>
     <em:version>0.1</em:version>
     <em:creator>Ryan McConville</em:creator>
     <em:homepageURL>https://linkiepie.com</em:homepageURL>
     <em:type>2</em:type>
-    <em:optionsURL>chrome://linkiepie/content/preferencesOverlay.xul</em:optionsURL> 
+    <em:optionsURL>chrome://linkiepie/content/preferencesOverlay.xul</em:optionsURL>
 
 
     <!-- Mozilla Firefox -->
