@@ -7,43 +7,46 @@ if ("undefined" == typeof(LinkiePieChrome)) {
  */
 LinkiePieChrome.BrowserOverlay = {
 
-
-    bookmarkCurrent : function(aEvent) {
+    bookmarkCurrent: function(aEvent) {
         let prefs = Components.classes["@mozilla.org/preferences-service;1"]
             .getService(Components.interfaces.nsIPrefService)
             .getBranch("extensions.linkiepie.");
 
         let username = prefs.getCharPref("username");
         let api_key = prefs.getCharPref("api_key");
-        if (username == '' || api_key == ''){
+        if (username == '' || api_key == '') {
             alert("Please set username and API Key in preferences!");
             this.openPreferences(aEvent)
         }
-        let url = "https://linkiepie.com/api/v1/links/?format=json'&username="+username+"&api_key="+api_key;
+        let url = "https://linkiepie.com/api/v1/links/?format=json'&username=" + username + "&api_key=" + api_key;
         let request = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]
             .createInstance(Components.interfaces.nsIXMLHttpRequest);
         request.onerror = function(aEvent) {
             alert("Oops something went wrong? Check your account details! " + aEvent);
         };
-        request.onreadystatechange = function (aEvent) {
+        request.onreadystatechange = function(aEvent) {
             if (request.readyState == 4) {
-                if(request.status != 201 && request.responseText != ''){
+                if (request.status != 201 && request.responseText != '') {
                     alert(request.responseText);
-                } 
+                } else if (request.status == 201) {
+                    document.getElementById('linkiepie-button').className = "saved";
+                }
             }
         }
         request.open("POST", url, true);
         request.setRequestHeader("Content-Type", "application/json");
-        let data = {"url": gBrowser.contentDocument.location.href};
+        let data = {
+            "url": gBrowser.contentDocument.location.href
+        };
         try {
             request.send(JSON.stringify(data));
-        }catch(e) {
+        } catch (e) {
             alert(e);
         }
     },
 
 
-    openLinkiePie : function(aEvent) {
+    openLinkiePie: function(aEvent) {
         let win = Components.classes['@mozilla.org/appshell/window-mediator;1']
             .getService(Components.interfaces.nsIWindowMediator)
             .getMostRecentWindow('navigator:browser');
@@ -51,7 +54,7 @@ LinkiePieChrome.BrowserOverlay = {
 
     },
 
-    openPreferences : function(aEvent) {
+    openPreferences: function(aEvent) {
         if (null == this._preferencesWindow || this._preferencesWindow.closed) {
             let instantApply =
                 Application.prefs.get("browser.preferences.instantApply");
@@ -61,18 +64,13 @@ LinkiePieChrome.BrowserOverlay = {
 
             this._preferencesWindow =
                 window.openDialog(
-                        "chrome://linkiepie/content/preferencesOverlay.xul",
-                        "linkiepie-prefs", features);
+                    "chrome://linkiepie/content/preferencesOverlay.xul",
+                    "linkiepie-prefs", features);
         }
 
         this._preferencesWindow.focus();
 
     },
-
-
-
-
-
 };
 
 
@@ -94,6 +92,16 @@ function installButton(toolbarId, id, afterId) {
     }
 }
 
- if (firstRun) {
+if (firstRun) {
     installButton("nav-bar", "linkiepie-button");
+
 }
+
+window.addEventListener("contextmenu", function(e) {
+    var menu = document.getElementById('linkiepie-context-item');
+    if (e.target.nodeName == 'A') {
+        menu.hidden = false;
+    } else {
+        menu.hidden = true;
+    }
+}, false);

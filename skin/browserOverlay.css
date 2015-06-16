@@ -1,4 +1,7 @@
 #linkiepie-button {
     list-style-image: url("chrome://linkiepie/skin/pie.png");
-  }
+ }
 
+#linkiepie-button.saved{
+    list-style-image: url("chrome://linkiepie/skin/pie-set.png");
+ }
