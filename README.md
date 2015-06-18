@@ -18,3 +18,10 @@ Set your API details (username and key):
 ```
 ALT+L+P
 ```
+
+##Build Extension
+From within the cloned directory (linux) zip up the contents with the following:
+```
+zip -r linkiepie.xpi *
+```
+Windows users can use standard utilites to create a zip file of the contents of the directory.
