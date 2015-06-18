@@ -20,7 +20,7 @@ ALT+L+P
 ```
 
 ##Build Extension
-From within the cloned directory (linux) zip up the contents with the following:
+Linux users: from within the cloned directory zip up the contents with the following:
 ```
 zip -r linkiepie.xpi *
 ```
