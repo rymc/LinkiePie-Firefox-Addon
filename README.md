@@ -20,8 +20,10 @@ ALT+L+P
 ```
 
 ##Build Extension
-Linux users: from within the cloned directory zip up the contents with the following:
+###Linux
+From within the cloned directory zip up the contents with the following command.
 ```
 zip -r linkiepie.xpi *
 ```
-Windows users can use standard utilites to create a zip file of the contents of the directory.
+###Windows
+Windows users can use standard Windows utilites to create a zip file of the contents of the directory.
